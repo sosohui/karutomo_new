@@ -1,7 +1,7 @@
 <template>
   <v-flex text-xs-center>
     <mdb-btn-group class="justify-content-center">
-      <mdb-btn outline="dark-green" darkWaves fab>
+      <mdb-btn outline="mdb-color" darkWaves fab>
         <router-link
           :to="{name: 'mycardCollection'}"
           class="black--text ma-3 font-weight-black"
@@ -10,7 +10,7 @@
         <span class="subheading font-weight-black">나의 카드</span>
         </router-link>
       </mdb-btn>
-      <mdb-btn outline="dark-green" darkWaves fab>
+      <mdb-btn outline="mdb-color" darkWaves fab>
         <router-link
           :to="{name: 'everycardCollection'}"
           class="black--text ma-3 font-weight-black"
@@ -19,7 +19,7 @@
         <span class="subheading font-weight-black">모두의 카드</span>
         </router-link>
       </mdb-btn>
-      <mdb-btn outline="dark-green" darkWaves fab>
+      <mdb-btn outline="mdb-color" darkWaves fab>
         <router-link
           :to="{name: 'storycardCollection'}"
           class="black--text ma-3 font-weight-black"
@@ -42,12 +42,10 @@
     },
     data() {
       return {
-
       }
     }
   }
 </script>
 
 <style>
-
 </style>

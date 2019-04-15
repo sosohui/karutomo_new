@@ -1,4 +1,5 @@
 <template>
+  <!-- vuetify를 이용한 modal창 -->
   <div>
     <v-btn
       dark
@@ -15,7 +16,7 @@
       <v-card>
         <div align="center">
         <v-img
-          :src="require('../assets/KARUTOMO_LOGO.png')"
+          :src="require('../../assets/KARUTOMO_LOGO.png')"
           width="220"
         ></v-img>
         </div>

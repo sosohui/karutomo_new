@@ -30,7 +30,7 @@
             class="pa-0"
           >
           <v-card
-            color="#084548"
+            color="#4f5d7e"
             class="white--text p-2 ml-4"
             style="max-width: 23rem;"
           >

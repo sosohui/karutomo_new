@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import loginModal from './components/login_Modal'
+import loginModal from './components/Modal/login_Modal'
 export default {
   name: 'App',
   components: {
