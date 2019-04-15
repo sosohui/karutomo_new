@@ -1,31 +1,65 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-toolbar color="white" app>
+      <v-toolbar-title>
+        <v-img
+          :src="require('./assets/row_karutomo.png')"
+          contain
+          width="200"
+        ></v-img>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-layout justify-end>
+        <v-btn
+          :to="{name: 'home'}"
+          flat
+        >
+          <span class="m-2">Home</span>
+        </v-btn>
+        <v-btn
+          :to="{name: 'mycardCollection'}"
+          flat
+        >
+          <span class="m-2">Collection</span>
+        </v-btn>
+        <v-btn
+          :to="{name: 'group'}"
+          flat
+        >
+          <span class="m-2">Group</span>
+        </v-btn>
+        <loginModal/>
+      </v-layout>
+
+
+    </v-toolbar>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <v-footer class="pa-3 subheading" color="#084548">
+      <v-flex
+      text-xs-center
+      white--text
+      >
+        copyright@asobi
+      </v-flex>
+  </v-footer>
+  </v-app>
 </template>
 
+<script>
+import loginModal from './components/login_Modal'
+export default {
+  name: 'App',
+  components: {
+    loginModal
+  },
+  data () {
+    return {
+      dialog: false
+    }
+  }
+}
+</script>
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

@@ -2,16 +2,16 @@
   <v-container
     class="pa-0"
   >
-    <Main></Main>
+    <Group></Group>
   </v-container>
 </template>
 
 <script>
-  import Main from '../components/Main.vue'
+  import Group from '../components/Group.vue'
 
   export default {
     components: {
-      Main
+      Group
     }
   }
 </script>

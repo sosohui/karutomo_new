@@ -1,6 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import EverycardCollection from "./views/EverycardCollection.vue";
+import MycardCollection from "./views/MycardCollection.vue";
+import StorycardCollection from "./views/StorycardCollection.vue";
+import Group from "./views/Group.vue";
+
 
 Vue.use(Router);
 
@@ -9,18 +14,29 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
+      path: "/home",
       name: "home",
       component: Home
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      path: "/mycardCollection",
+      name: "mycardCollection",
+      component: MycardCollection
+    },
+    {
+      path: "/everycardCollection",
+      name: "everycardCollection",
+      component: EverycardCollection
+    },
+    {
+      path: "/storycardCollection",
+      name: "storycardCollection",
+      component: StorycardCollection
+    },
+    {
+      path: "/group",
+      name: "group",
+      component: Group
     }
   ]
 });
