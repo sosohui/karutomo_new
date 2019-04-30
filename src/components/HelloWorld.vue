@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <v-container>
     <v-layout
       text-xs-center

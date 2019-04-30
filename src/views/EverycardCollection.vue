@@ -13,3 +13,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .container {
+    max-width: 100%
+  }
+</style>

@@ -1,6 +1,14 @@
-<template>
+<template lang="html">
   <v-app>
-    <v-toolbar color="white" app>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <v-toolbar
+      color="white"
+      clipped-right
+      fixed
+      app
+    >
       <v-toolbar-title>
         <v-img
           :src="require('./assets/row_karutomo.png')"
@@ -33,10 +41,12 @@
 
 
     </v-toolbar>
-    <v-content>
-      <router-view/>
-    </v-content>
-    <v-footer class="pa-3 subheading" color="#084548">
+    <v-footer
+      class="pa-3 subheading"
+      color="#084548"
+      fixed
+      app
+      >
       <v-flex
       text-xs-center
       white--text

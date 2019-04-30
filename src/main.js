@@ -18,11 +18,7 @@ Vue.use(Vuetify);
 
 Vue.config.productionTip = false;
 
-export const eventBus = new Vue({
-  methods: {
-
-  }
-})
+export const eventBus = new Vue();
 
 new Vue({
   router,

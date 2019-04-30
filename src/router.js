@@ -5,6 +5,8 @@ import EverycardCollection from "./views/EverycardCollection.vue";
 import MycardCollection from "./views/MycardCollection.vue";
 import StorycardCollection from "./views/StorycardCollection.vue";
 import Group from "./views/Group.vue";
+import DetailCard from "./views/DatailCard.vue";
+import SelectedGroup from "./views/SelectedGroup.vue"
 
 
 Vue.use(Router);
@@ -37,6 +39,16 @@ export default new Router({
       path: "/group",
       name: "group",
       component: Group
+    },
+    {
+      path: "/detailCard",
+      name: "detailCard",
+      component: DetailCard
+    },
+    {
+      path: "/selectedGroup",
+      name: "selectedGroup",
+      component: SelectedGroup
     }
   ]
 });

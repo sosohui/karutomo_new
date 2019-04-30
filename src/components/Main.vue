@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <v-container>
     <v-img
       :src="require('../assets/main.jpg')"
@@ -91,47 +91,51 @@
             color="#084548"
             class="ma-2 pa-2"
           >
-            <v-card
-              flat
-              color="white"
-              class="text-md-center p-3"
-            >
-              <div class="headline font-weight-bold">
-                다앙한 카드로 즐기기
-              </div>
-              <b-img
-                :src="require('../assets/every_card.png')"
-                width="270px"
-                center
-              ></b-img>
-              <div class="subheading font-weight-bold">
-                다른 사용자들이 만든 카드를 구독하고 구독한 카드로 카루타를 즐겨 보세요!
-              </div>
-            </v-card>
+            <a href="../everycardCollection">
+              <v-card
+                flat
+                color="white"
+                class="text-md-center p-3"
+              >
+                <div class="headline font-weight-bold">
+                  다앙한 카드로 즐기기
+                </div>
+                <b-img
+                  :src="require('../assets/every_card.png')"
+                  width="270px"
+                  center
+                ></b-img>
+                <div class="subheading font-weight-bold">
+                  다른 사용자들이 만든 카드를 구독하고 구독한 카드로 카루타를 즐겨 보세요!
+                </div>
+              </v-card>
+            </a>
           </v-card>
         </v-flex>
         <v-flex xs6>
-         <v-card
+          <v-card
             color="#084548"
             class="ma-2 pa-2"
           >
-            <v-card
-              flat
-              color="white"
-              class="text-md-center p-3"
-            >
-              <div class="headline font-weight-bold">
-                내가만든 카드로 즐기기
-              </div>
-              <b-img
-                :src="require('../assets/my_card.png')"
-                width="270px"
-                center
-              ></b-img>
-              <div class="subheading font-weight-bold">
-                내가 원하는 카드가 없다면 직접 만들어 카루타를 즐겨 보세요!
-              </div>
-            </v-card>
+            <a href="../mycardCollection">
+              <v-card
+                flat
+                color="white"
+                class="text-md-center p-3"
+              >
+                <div class="headline font-weight-bold">
+                  내가 만든 카드로 즐기기
+                </div>
+                <b-img
+                  :src="require('../assets/my_card.png')"
+                  width="270px"
+                  center
+                ></b-img>
+                <div class="subheading font-weight-bold">
+                  내가 원하는 카드가 없다면 직접 만들어 카루타를 즐겨 보세요!
+                </div>
+              </v-card>
+            </a>
           </v-card>
         </v-flex>
       </v-layout>
