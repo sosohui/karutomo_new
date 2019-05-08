@@ -18,7 +18,7 @@
           :navigation-next-label="navigationNext"
           :navigation-prev-label="navigationPrev"
           :mouse-drag="false"
-          class="py-3 px-5 mb-4 mx-3"
+          class="py-3 mb-4"
         >
           <slide
             v-for="card in cards"
@@ -26,7 +26,7 @@
           >
             <v-flex
                 v-bind="{ [`xs${card.flex}`]: true }"
-                class="pa-0"
+                class="py-0 px-4"
               >
               <v-card
                 color="#4f5d7e"
@@ -61,8 +61,8 @@
                         <div class="subheading ma-1">#{{ card.tag }}</div>
                         </v-flex>
                         <v-flex>
-                          <div
-                            class="align-self-end"
+                          <v-flex
+                            align-end
                           >
                             <v-btn
                               color="#79b3bf"
@@ -70,7 +70,7 @@
                             >
                               구독하러가기
                             </v-btn>
-                          </div>
+                          </v-flex>
                           <div
                             class="mx-1 mt-1"
                           >
@@ -148,12 +148,13 @@
 
 <script>
   import { mdbBtn } from 'mdbvue';
-  import cardSelect from '../cardSelection.vue';
+  import cardSelect from './cardSelection.vue';
   import { Carousel, Slide } from 'vue-carousel';
   export default {
     components: {
       Carousel,
-      cardSelect
+      cardSelect,
+      Slide
     },
     data() {
       return {

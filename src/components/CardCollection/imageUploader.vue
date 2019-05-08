@@ -96,47 +96,51 @@
             <v-card flat>
               <v-flex>
                 <b-form-checkbox
-                  id="checkbox-1"
+                  id="edgeCheckBox"
                   v-model="edgeCheck"
-                  name="checkbox-1"
-                  value="accepted"
-                  unchecked-value="not_accepted"
+                  name="edgeCheckBox"
+                  value="edgeChecked"
+                  unchecked-value="edgeUnchecked"
                   class="subheading font-weight-regular"
+                  @change="edgeStyleCheck()"
                 >
                   테두리
                 </b-form-checkbox>
                 <v-btn-toggle
                   class="pa-2"
+                  v-model="edgeColor"
+                  @change="edgeColorCheck()"
                 >
-                  <v-btn flat color="success">
+                  <v-btn flat color="success" value="green">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
-                  <v-btn flat color="error">
+                  <v-btn flat color="error" value="red">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
-                  <v-btn flat color="warning">
+                  <v-btn flat color="warning" value="orange">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
-                  <v-btn flat color="info">
+                  <v-btn flat color="info" value="blue">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
                 </v-btn-toggle>
               </v-flex>
               <v-flex>
                 <b-form-checkbox
-                  id="checkbox-1"
-                  v-model="leaderCheck"
-                  name="checkbox-1"
-                  value="accepted"
-                  unchecked-value="not_accepted"
+                  id="circleCheckBox"
+                  v-model="circleCheck"
+                  name="circleCheckBox"
+                  value="circleChecked"
+                  unchecked-value="circleUnchecked"
                   class="subheading font-weight-regular"
+                  @change="circleStyleCheck()"
                 >
                   대표 문자
                 </b-form-checkbox>
                 <v-flex pa-1>
                   <b-form-input
                     id="input-formatter"
-                    v-model="leader"
+                    v-model="leaderText"
                     placeholder="대표문자"
                     aria-describedby="input-formatter-help"
                     class="px-2 py-4"
@@ -144,17 +148,19 @@
                 </v-flex>
                 <v-btn-toggle
                   class="pa-2"
+                  v-model="circleColor"
+                  @change="circleColorCheck()"
                 >
-                  <v-btn flat color="success">
+                  <v-btn flat color="success" value="green">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
-                  <v-btn flat color="error">
+                  <v-btn flat color="error" value="red">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
-                  <v-btn flat color="warning">
+                  <v-btn flat color="warning" value="orange">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
-                  <v-btn flat color="info">
+                  <v-btn flat color="info" value="blue">
                     <v-icon>format_color_fill</v-icon>
                   </v-btn>
                 </v-btn-toggle>
@@ -192,7 +198,32 @@
             </v-card>
           </v-flex>
           <v-flex ml-4 wrap>
-            <v-card width="230px" height="328px" flat color="grey"></v-card>
+            <canvas style="width:230px; height:328px; backgroundColor:yellow;">
+              <v-img
+                  :src= image.dataUrl
+                  v-bind:style="{ border: edgeStyle }"
+                  class="mx-3"
+                  style="width:230px; height:328px; backgroundColor:#C0C0C0;"
+              >
+              <div
+                style="width:60px; height:60px; border-radius:100%; position:absolute; top:15px; right:15px;"
+                v-bind:style="{ backgroundColor: circleStyle }"  
+              >
+                <v-flex class="white--text font-weight-black" style="font-size: 50px; position:absolute; top:-5px; left:5px;">{{ leaderText }}</v-flex>
+              </div>
+              </v-img>
+            </canvas>
+            <image-uploader
+                :preview="false"
+                :className="['fileinput', { 'fileinput--loaded': hasImage }]"
+                capture="environment"
+                :debug="1"
+                :autoRotate="true"
+                outputFormat="verbose"
+                @input="setImage"
+                class="pt-1"
+            >
+            </image-uploader>
           </v-flex>
         </v-layout>
       </mdb-modal-body>
@@ -208,6 +239,7 @@
 <script>
 import { eventBus } from '../../main';
 import { mdbModal, mdbModalHeader, mdbModalTitle, mdbModalBody, mdbModalFooter, mdbBtn } from 'mdbvue';
+
   export default {
     components: {
       mdbModal,
@@ -219,8 +251,17 @@ import { mdbModal, mdbModalHeader, mdbModalTitle, mdbModalBody, mdbModalFooter, 
     },
     data() {
       return {
+        leaderText: '',
+        circleDisplay: 'none',
+        circleColor: 'black',
+        circleStyle: '',
+        circleCheck: 'circleUnchecked',
+        edgeColor: '',
+        edgeStyle: '',
+        edgeCheck: 'edgeUnchecked',
+        hasImage: '',
+        image: '',
         soundCheck:'',
-        edgeCheck: '',
         leaderCheck: '',
         leader:'',
         sound:'',
@@ -232,8 +273,60 @@ import { mdbModal, mdbModalHeader, mdbModalTitle, mdbModalBody, mdbModalFooter, 
         card: {
             title: '에이스 카루타', src: require('../../assets/에이스.jpg'), context: '원피스 캐릭터 에이스 카루타입니다', hits: 30, flex: 4.5,
             hash: ["#aa", "#bb"]
-          },
+        },
         // tag를 어떻게 처리할까......................
+      }
+    },
+    methods: {
+      setImage (file) {
+        this.hasImage = true
+        this.image = file
+        console.log(file)
+      },
+      edgeStyleCheck() {
+        console.log(this.edgeCheck)
+        if(this.edgeCheck == 'edgeChecked'){
+          console.log('none');
+          this.edgeStyle = '';
+        }else if(this.edgeCheck == 'edgeUnchecked'){
+          console.log('style');
+          this.edgeStyle = '15px solid black';
+        }
+      },
+      edgeColorCheck() {
+        console.log(this.edgeColor)
+        if(this.edgeColor == 'green'){
+           this.edgeStyle = '15px solid #4caf50'
+        }else if(this.edgeColor == 'red'){
+           this.edgeStyle = '15px solid #ff5252'
+        }else if(this.edgeColor == 'orange'){
+           this.edgeStyle = '15px solid #fb8c00'
+        }else if(this.edgeColor == 'blue'){
+           this.edgeStyle = '15px solid #2196f3'          
+        }
+      },
+      circleStyleCheck() {
+        console.log(this.circleCheck)
+        if(this.circleCheck == 'circleChecked'){
+          console.log('none')
+          this.circleDisplay = 'none';
+        }else if(this.circleCheck == 'circleUnchecked'){
+          console.log('style')
+          this.circleDisplay = "inline"
+          this.circleStyle = "black"
+        }
+      },
+      circleColorCheck() {
+        console.log(this.circleColor)
+        if(this.circleColor == 'green'){
+          this.circleStyle = '#4caf50'
+        }else if(this.circleColor == 'red'){
+          this.circleStyle = '#ff5252'
+        }else if(this.circleColor == 'orange'){
+          this.circleStyle = '#fb8c00'
+        }else if(this.circleColor == 'blue'){
+          this.circleStyle = '#2196f3'          
+        }
       }
     },
     created() {

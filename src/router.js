@@ -7,7 +7,7 @@ import StorycardCollection from "./views/StorycardCollection.vue";
 import Group from "./views/Group.vue";
 import DetailCard from "./views/DatailCard.vue";
 import SelectedGroup from "./views/SelectedGroup.vue"
-
+import MakeCard from "./views/MakeCard.vue"
 
 Vue.use(Router);
 
@@ -49,6 +49,11 @@ export default new Router({
       path: "/selectedGroup",
       name: "selectedGroup",
       component: SelectedGroup
-    }
+    },
+    {
+      path: "/makeCard",
+      name: "makeCard",
+      component: MakeCard
+    },
   ]
 });

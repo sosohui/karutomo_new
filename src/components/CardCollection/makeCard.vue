@@ -71,7 +71,7 @@
     >
       <mdb-btn
         outline="mdb-color"
-        class="py-5 ma-2"
+        class="ma-2 pa-2"
         @click.native="modal = true"
         style="width:200px; height:280px;"
       >

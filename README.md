@@ -1,4 +1,4 @@
-# karutomo_capston
+# karutomo_frontend
 
 ## Project setup
 ```

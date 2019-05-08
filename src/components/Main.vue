@@ -91,7 +91,7 @@
             color="#084548"
             class="ma-2 pa-2"
           >
-            <a href="../everycardCollection">
+            <a href="../everycardCollection" style="text-decoration:none;">
               <v-card
                 flat
                 color="white"
@@ -117,7 +117,7 @@
             color="#084548"
             class="ma-2 pa-2"
           >
-            <a href="../mycardCollection">
+            <a href="../mycardCollection" style="text-decoration:none;">
               <v-card
                 flat
                 color="white"
@@ -145,7 +145,7 @@
 </template>
 
 <script>
-  import cardSelect from '../components/cardSelection.vue';
+  import cardSelect from './CardCollection/cardSelection.vue';
   import { mdbBtn } from 'mdbvue';
   import { Carousel, Slide } from 'vue-carousel';
   export default {
@@ -174,4 +174,7 @@
 </script>
 
 <style scoped>
+.container {
+    text-decoration:none;
+}
 </style>

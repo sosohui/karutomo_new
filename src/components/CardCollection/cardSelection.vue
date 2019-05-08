@@ -7,7 +7,7 @@
           class="black--text ma-3 font-weight-black"
           style=" text-decoration: none"
         >
-        <span class="subheading font-weight-black">나의 카드</span>
+          <span class="subheading font-weight-black">나의 카드</span>
         </router-link>
       </mdb-btn>
       <mdb-btn outline="mdb-color" darkWaves fab>
@@ -16,7 +16,7 @@
           class="black--text ma-3 font-weight-black"
           style=" text-decoration: none"
         >
-        <span class="subheading font-weight-black">모두의 카드</span>
+          <span class="subheading font-weight-black">모두의 카드</span>
         </router-link>
       </mdb-btn>
       <mdb-btn outline="mdb-color" darkWaves fab>
@@ -25,7 +25,7 @@
           class="black--text ma-3 font-weight-black"
           style=" text-decoration: none"
         >
-        <span class="subheading font-weight-black">스토리 카드</span>
+          <span class="subheading font-weight-black">스토리 카드</span>
         </router-link>
       </mdb-btn>
     </mdb-btn-group>

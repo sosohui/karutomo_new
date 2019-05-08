@@ -96,6 +96,7 @@
 
     <v-flex
       v-for="card in storyCards"
+      :key="card.title"
     >
       <v-card
         style="max-width:25rem; border-radius:20px;"
@@ -133,7 +134,7 @@
 </template>
 
 <script>
-  import cardSelect from '../cardSelection.vue';
+  import cardSelect from './cardSelection.vue';
   import { mdbBtn } from 'mdbvue';
   import { Carousel, Slide } from 'vue-carousel';
   export default {

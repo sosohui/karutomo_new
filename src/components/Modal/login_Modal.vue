@@ -1,5 +1,4 @@
 <template>
-  <!-- vuetify를 이용한 modal창 -->
   <div>
     <v-btn
       dark
@@ -100,5 +99,4 @@
 </script>
 
 <style>
-
 </style>

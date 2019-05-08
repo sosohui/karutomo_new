@@ -39,11 +39,11 @@
               <v-flex xs12>
                 <v-card-title
                   primary-title
-                  class="p-1"
+                  class="pa-1"
                 >
                   <p class="title font-weight-bold m-1">{{ card.title }}</p>
-                  <div class="body-2 m-1">{{ card.context }}</div>
-                  <div class="body-2 m-1">#{{ card.tag }}</div>
+                  <div class="body-2 ma-1">{{ card.context }}</div>
+                  <div class="body-2 ma-1">#{{ card.tag }}</div>
                   <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
                     <span class="mx-1 mt-1">
                       <v-icon>remove_red_eye</v-icon>
@@ -60,28 +60,34 @@
 
       <!-- 카드 추가를 위한 버튼 -->
       <slide
-        class="pl-3"
+        class="pl-0"
       >
         <span>
-          <mdb-btn
-            outline="mdb-color"
-            class="py-4 mt-1 ml-4"
-            @click.native="modal = true"
+          <router-link
+            :to="{name: 'makeCard'}"
+            class="black--text ma-3 font-weight-black"
+            style=" text-decoration: none"
           >
-            <span class="px-4">
-              <span class="pa-4">
-                <v-icon x-large class="pa-5">
-                  add
-                </v-icon>
-              </span>
-            </span>
-          </mdb-btn>
+            <mdb-btn
+                outline="mdb-color"
+                class="py-4 mt-1 ml-4"
+                @click.native="modal = true"
+            >
+                <span class="px-5">
+                <span class="pa-4">
+                    <v-icon x-large class="pa-5">
+                    add
+                    </v-icon>
+                </span>
+                </span>
+            </mdb-btn>
+          </router-link>
         </span>
       </slide>
     </carousel>
 
     <!-- 카드 제작 모달창 -->
-    <mdb-modal :show="modal" @close="modal = false">
+    <!-- <mdb-modal :show="modal" @close="modal = false">
       <mdb-modal-header class="text-md-center" color="mdb-color">
         <mdb-modal-title><div class="font-weight-bold headline">카드 팩 제작</div></mdb-modal-title>
       </mdb-modal-header>
@@ -137,7 +143,7 @@
           Next
         </v-btn>
       </mdb-modal-footer>
-    </mdb-modal>
+    </mdb-modal> -->
     <!-- 모달창 끝 -->
 
     <div class="m-3">
@@ -177,7 +183,7 @@
               <v-flex xs12>
                 <v-card-title
                   primary-title
-                  class="p-1"
+                  class="pa-1"
                 >
                   <p class="title font-weight-bold m-1">{{ card.title }}</p>
                   <div class="body-2 m-1">{{ card.context }}</div>
@@ -203,10 +209,11 @@
             outline="mdb-color"
             class="py-4 mt-1 ml-4"
           >
-            <span class="px-4">
+            <span class="px-5">
               <span class="pa-4">
                 <router-link
                   :to="{name: 'everycardCollection'}"
+                  style="text-decoration: none"
                 >
                 <v-icon x-large class="pa-5">
                   add
@@ -223,9 +230,8 @@
 </template>
 
 <script>
-
   import { mdbModal, mdbModalHeader, mdbModalTitle, mdbModalBody, mdbModalFooter, mdbBtn } from 'mdbvue';
-  import cardSelect from '../cardSelection.vue';
+  import cardSelect from './cardSelection.vue';
   import { Carousel, Slide } from 'vue-carousel';
   import { eventBus } from '../../main';
   export default {

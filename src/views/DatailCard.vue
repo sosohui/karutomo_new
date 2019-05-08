@@ -2,16 +2,18 @@
   <v-container
     class="pa-0"
   >
-  <cardDetail></cardDetail>
+  <ImageUploader></ImageUploader>
+  <!-- <cardDetail></cardDetail> -->
   </v-container>
 </template>
 
 <script>
-  import CardDetail from '../components/CardCollection/detailCard.vue'
+  // import CardDetail from '../components/CardCollection/detailCard.vue'
+  import ImageUploader from '../components/CardCollection/imageUploader.vue'
 
   export default {
     components: {
-      CardDetail
+      ImageUploader
     }
   }
 </script>
