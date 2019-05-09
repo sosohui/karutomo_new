@@ -1,9 +1,11 @@
 <template lang="html">
   <v-container pt-2>
-    <cardSelect></cardSelect>
+    <v-layout pb-0 pt-2>
+      <cardSelect class="pa-2"></cardSelect>
+    </v-layout>
 
     <div class="m-3">
-      <div class="title font-weight-black">내가 제작한 카드</div>
+      <div class="headline font-weight-black">내가 제작한 카드</div>
     </div>
     <carousel
       :navigation-enabled="true"
@@ -44,7 +46,12 @@
                   <p class="title font-weight-bold m-1">{{ card.title }}</p>
                   <div class="body-2 ma-1">{{ card.context }}</div>
                   <div class="body-2 ma-1">#{{ card.tag }}</div>
-                  <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
+                  <router-link
+                    :to="{name: 'detailCard'}"
+                    style=" text-decoration: none"
+                  >
+                    <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
+                  </router-link>
                     <span class="mx-1 mt-1">
                       <v-icon>remove_red_eye</v-icon>
                       <span class="mx-2 body-2">{{ card.hits }}</span>
@@ -147,7 +154,7 @@
     <!-- 모달창 끝 -->
 
     <div class="m-3">
-      <div class="title font-weight-black">내가 구독한 카드</div>
+      <div class="headline font-weight-black">내가 구독한 카드</div>
     </div>
     <carousel
       :navigation-enabled="true"
@@ -188,7 +195,12 @@
                   <p class="title font-weight-bold m-1">{{ card.title }}</p>
                   <div class="body-2 m-1">{{ card.context }}</div>
                   <div class="body-2 m-1">#{{ card.tag }}</div>
-                  <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
+                  <router-link
+                    :to="{name: 'detailCard'}"
+                    style=" text-decoration: none"
+                  >
+                    <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
+                  </router-link>
                     <span class="mx-1 mt-1">
                       <v-icon>remove_red_eye</v-icon>
                       <span class="mx-2 body-2">{{ card.hits }}</span>

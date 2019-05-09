@@ -1,8 +1,9 @@
 <template lang="html">
-  <v-container>
+  <v-container style="max-width:98%">
     <v-layout pb-4 px-4 justify-end>
       <v-btn
-        color="success"
+        class="white--text font-weight-bold"
+        color="#79b3bf"
         @click.native="modal = true"
       >그룹 생성</v-btn>
     </v-layout>
@@ -23,19 +24,20 @@
           ></v-img>
           <v-card-title
             primary-title
-            style="background-color:green;"
+            style="background-color:#4f5d7e;"
             class="pt-3"
           >
             <v-layout
               column
+              style="height:150px;"
             >
             <v-flex>
               <div class="headline font-weight-bold white--text ma-0">{{ groups[i-1].title }}</div>
-              <div class="pa-1 white--text font-weight-medium">{{ groups[i-1].context }}</div>
+              <div class="px-1 py-2 white--text font-weight-medium">{{ groups[i-1].context }}</div>
             </v-flex>
             <v-layout align-self-end>
               <v-flex>
-                <v-btn color="orange" class="white--text">자세히보기</v-btn>
+                <v-btn color="#79b3bf" class="white--text font-weight-bold">자세히보기</v-btn>
               </v-flex>
               </v-layout>
             </v-layout>
@@ -59,13 +61,13 @@
           ></v-img>
           <v-card-title
             primary-title
-            style="background-color:green;"
+            style="background-color:#4f5d7e;"
             class="pt-3"
           >
             <v-layout
               column
             >
-              <v-card height="125px" flat style="background-color:green;"></v-card>
+              <v-card height="150px" flat style="background-color:#4f5d7e;"></v-card>
             </v-layout>
           </v-card-title>
         </v-card>

@@ -1,7 +1,7 @@
 <template lang="html">
-  <v-container pt-2>
-    <v-layout pb-4>
-      <cardSelect></cardSelect>
+  <v-container pt-2 style="max-width:98%;">
+    <v-layout py-2>
+      <cardSelect class="pa-2"></cardSelect>
     </v-layout>
     <v-layout justify-center style="background-color:#757575">
       <v-flex xs10>
@@ -55,14 +55,21 @@
                         justify-space-around
                         fill-height
                       >
-                      <v-flex>
-                        <div class="headline font-weight-bold m-1">{{ card.title }}</div>
-                        <div class="subheading ma-1">{{ card.context }}</div>
-                        <div class="subheading ma-1">#{{ card.tag }}</div>
-                        </v-flex>
                         <v-flex>
-                          <v-flex
-                            align-end
+                          <div class="headline font-weight-bold m-1 pa-1">{{ card.title }}</div>
+                          <div class="subheading ma-1 pa-1">{{ card.context }}</div>
+                          <div class="subheading ma-1 pa-2">#{{ card.tag }}</div>
+                        </v-flex>
+                        <v-layout
+                          style="height:100px;"
+                          column
+                          justify-end
+                          fill-height
+                        >
+                          <router-link
+                            :to="{name: 'detailCard'}"
+                            style=" text-decoration: none"
+                            class="pa-2"
                           >
                             <v-btn
                               color="#79b3bf"
@@ -70,16 +77,16 @@
                             >
                               구독하러가기
                             </v-btn>
-                          </v-flex>
+                          </router-link>
                           <div
-                            class="mx-1 mt-1"
+                            class="mx-1 mt-1 pa-1"
                           >
                             <v-icon>remove_red_eye</v-icon>
                             <span class="mx-2 body-2">{{ card.hits }}</span>
                             <v-icon>star_border</v-icon>
                             <span class="mx-2 body-2">{{ card.hits }}</span>
                           </div>
-                        </v-flex>
+                        </v-layout>
                       </v-layout>
                     <!-- </v-card-title> -->
                   </v-container>
@@ -92,56 +99,64 @@
       </v-flex>
     </v-layout>
 
-    <div class="headline font-weight-black px-3 pt-4">모든 카드 보기</div>
+    <v-container style="max-width:97%">
+      <div class="headline font-weight-black px-3 pt-4">모든 카드 보기</div>
 
-    <v-layout
-      row
-    >
-      <v-flex
-        v-for="card in cards"
-        :key="card.title"
-        py-4
+      <v-layout
+        row
       >
         <v-flex
-          v-bind="{ [`xs${card.flex}`]: true }"
-          class="pa-0"
+          v-for="card in cards"
+          :key="card.title"
+          py-4
         >
-          <v-card
-            color="#4f5d7e"
-            class="white--text p-2 ml-4"
-            style="max-width: 23rem;"
+          <v-flex
+            v-bind="{ [`xs${card.flex}`]: true }"
+            class="pa-0"
           >
-            <v-layout>
-              <v-flex xs5>
-                <v-img
-                  :src="card.src"
-                  contain
-                  width="125px"
-                  height="175px"
-                ></v-img>
-              </v-flex>
-              <v-flex xs12>
-                <v-card-title
-                  primary-title
-                  class="p-1"
-                >
-                  <p class="title font-weight-bold m-1">{{ card.title }}</p>
-                  <div class="body-2 m-1">{{ card.context }}</div>
-                  <div class="body-2 m-1">#{{ card.tag }}</div>
-                  <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
-                    <span class="mx-1 mt-1">
-                      <v-icon>remove_red_eye</v-icon>
-                      <span class="mx-2 body-2">{{ card.hits }}</span>
-                      <v-icon>star_border</v-icon>
-                      <span class="mx-2 body-2">{{ card.hits }}</span>
-                    </span>
-                </v-card-title>
-              </v-flex>
-            </v-layout>
-          </v-card>
+            <v-card
+              color="#4f5d7e"
+              class="white--text p-2 ml-4"
+              style="max-width: 23rem;"
+            >
+              <v-layout>
+                <v-flex xs5>
+                  <v-img
+                    :src="card.src"
+                    contain
+                    width="125px"
+                    height="175px"
+                  ></v-img>
+                </v-flex>
+                <v-flex xs12>
+                  <v-card-title
+                    primary-title
+                    class="p-1"
+                  >
+                    <p class="title font-weight-bold m-1">{{ card.title }}</p>
+                    <div class="body-2 m-1">{{ card.context }}</div>
+                    <div class="body-2 m-1">#{{ card.tag }}</div>
+                    <router-link
+                      :to="{name: 'detailCard'}"
+                      style=" text-decoration: none"
+                    >
+                      <v-btn small color="#79b3bf" class="white--text font-weight-bold ml-5 px-4 body-2">자세히보기</v-btn>
+                    </router-link>
+                      <span class="mx-1 mt-1">
+                        <v-icon>remove_red_eye</v-icon>
+                        <span class="mx-2 body-2">{{ card.hits }}</span>
+                        <v-icon>star_border</v-icon>
+                        <span class="mx-2 body-2">{{ card.hits }}</span>
+                      </span>
+                  </v-card-title>
+                </v-flex>
+              </v-layout>
+            </v-card>
+          </v-flex>
         </v-flex>
-      </v-flex>
-    </v-layout>
+      </v-layout>
+
+    </v-container>
 
   </v-container>
 </template>

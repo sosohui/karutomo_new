@@ -36,6 +36,12 @@
         >
           <span class="m-2">Group</span>
         </v-btn>
+        <v-btn
+          :to="{name: 'score'}"
+          flat
+        >
+          <span class="m-2">Score</span>
+        </v-btn>
         <loginModal/>
       </v-layout>
 

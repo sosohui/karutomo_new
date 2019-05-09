@@ -1,13 +1,15 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import EverycardCollection from "./views/EverycardCollection.vue";
-import MycardCollection from "./views/MycardCollection.vue";
-import StorycardCollection from "./views/StorycardCollection.vue";
-import Group from "./views/Group.vue";
-import DetailCard from "./views/DatailCard.vue";
-import SelectedGroup from "./views/SelectedGroup.vue"
-import MakeCard from "./views/MakeCard.vue"
+import EverycardCollection from "./components/CardCollection/EverycardCollection.vue";
+import MycardCollection from "./components/CardCollection/MycardCollection.vue";
+import StorycardCollection from "./components/CardCollection/StorycardCollection.vue";
+import Group from "./components/Group.vue";
+// import DetailCard from "./components/CardCollection/imageUploader.vue";
+import DetailCard from "./components/CardCollection/detailCard.vue"; 
+import SelectedGroup from "./components/selectedGroup.vue"
+import MakeCard from "./components/CardCollection/makeCard.vue"
+import Score from "./components/Score.vue"
 
 Vue.use(Router);
 
@@ -54,6 +56,11 @@ export default new Router({
       path: "/makeCard",
       name: "makeCard",
       component: MakeCard
+    },
+    {
+      path: "/score",
+      name: "score",
+      component: Score
     },
   ]
 });

@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-container >
+  <v-container style="max-width:100%;">
     <v-navigation-drawer
       :width="310"
       fixed

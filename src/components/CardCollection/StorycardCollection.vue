@@ -1,7 +1,7 @@
 <template>
-  <v-container pt-2>
-    <v-layout pb-4>
-      <cardSelect></cardSelect>
+  <v-container pt-2 style="max-width:98%;">
+    <v-layout py-2>
+      <cardSelect class="pa-2"></cardSelect>
     </v-layout>
     <v-layout justify-center style="background-color:grey;">
       <v-flex xs10>
@@ -92,43 +92,45 @@
       </v-flex>
     </v-layout>
 
-    <div class="headline font-weight-black px-3 py-4">스토리 카드 보기</div>
+    <v-container style="max-width:95%">
+      <div class="headline font-weight-black px-3 py-4">스토리 카드 보기</div>
 
-    <v-flex
-      v-for="card in storyCards"
-      :key="card.title"
-    >
-      <v-card
-        style="max-width:25rem; border-radius:20px;"
+      <v-flex
+        v-for="card in storyCards"
+        :key="card.title"
       >
-        <v-img
-          :src="card.src"
-          contain
-          width="350px"
-          height="200px"
-        ></v-img>
-        <v-card-title
-          primary-title
-          style="background-color:green;"
-          class="pt-3"
+        <v-card
+          style="max-width:25rem; border-radius:20px;"
         >
-          <v-layout
-            column
+          <v-img
+            :src="card.src"
+            contain
+            width="350px"
+            height="200px"
+          ></v-img>
+          <v-card-title
+            primary-title
+            style="background-color:#4f5d7e;"
+            class="pt-3"
           >
-          <v-flex>
-            <div class="headline font-weight-bold white--text ma-0">{{ card.title }}</div>
-            <div class="pa-1 white--text font-weight-medium">{{ card.context }}</div>
-          </v-flex>
-          <v-layout align-self-end>
+            <v-layout
+              column
+            >
             <v-flex>
-              <v-btn color="orange" class="white--text">자세히보기</v-btn>
+              <div class="headline font-weight-bold white--text ma-0">{{ card.title }}</div>
+              <div class="pa-1 white--text font-weight-medium">{{ card.context }}</div>
             </v-flex>
+            <v-layout align-self-end>
+              <v-flex>
+                <v-btn color="#79b3bf" class="white--text font-weight-bold">자세히보기</v-btn>
+              </v-flex>
+              </v-layout>
             </v-layout>
-          </v-layout>
-        </v-card-title>
+          </v-card-title>
 
-      </v-card>
-    </v-flex>
+        </v-card>
+      </v-flex>
+    </v-container>
 
   </v-container>
 </template>

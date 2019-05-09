@@ -1,5 +1,5 @@
 <template lang="html">
-  <v-container>
+  <v-container style="max-width:100%">
     <v-layout
       column
       style="background-color:#757575"
@@ -49,7 +49,9 @@
       </v-layout>
     </v-layout>
 
-    <groupBoard></groupBoard>
+    <v-layout justify-center>
+      <groupBoard style="max-width:95%"></groupBoard>
+    </v-layout>
 
     <v-navigation-drawer
       :width="280"
@@ -101,7 +103,9 @@ export default {
       members : [
         { name: 'soso' },
         { name: 'hui' },
-        { name: 'karutomo' }
+        { name: 'karutomo' },
+        { name: '조로' },
+        { name: '마르코' }
       ]
     }
   },
