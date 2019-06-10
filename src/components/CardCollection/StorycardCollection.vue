@@ -3,7 +3,7 @@
     <v-layout py-2>
       <cardSelect class="pa-2"></cardSelect>
     </v-layout>
-    <v-layout justify-center style="background-color:grey;">
+    <v-layout justify-center style="background-color:#b7b7b7">
       <v-flex xs10>
         <div class="headline font-weight-black white--text pt-4 pb-1">
           맞춤 추천 카드
@@ -18,7 +18,7 @@
           :navigation-next-label="navigationNext"
           :navigation-prev-label="navigationPrev"
           :mouse-drag="false"
-          class="py-3 pr-3 mb-4"
+          class="py-3 mb-4"
         >
           <slide
             v-for="card in cards"
@@ -26,7 +26,7 @@
           >
             <v-flex
                 v-bind="{ [`xs${card.flex}`]: true }"
-                class="pa-0"
+                class="py-0 px-4"
               >
               <v-card
                 color="#4f5d7e"
@@ -55,14 +55,21 @@
                         justify-space-around
                         fill-height
                       >
-                      <v-flex>
-                        <div class="headline font-weight-bold m-1">{{ card.title }}</div>
-                        <div class="subheading ma-1">{{ card.context }}</div>
-                        <div class="subheading ma-1">#{{ card.tag }}</div>
-                        </v-flex>
                         <v-flex>
-                          <v-flex
-                            align-end
+                          <div class="headline font-weight-bold m-1 pa-1">{{ card.title }}</div>
+                          <div class="subheading ma-1 pa-1">{{ card.context }}</div>
+                          <div class="subheading ma-1 pa-2">#{{ card.tag }}</div>
+                        </v-flex>
+                        <v-layout
+                          style="height:100px;"
+                          column
+                          justify-end
+                          fill-height
+                        >
+                          <router-link
+                            :to="{name: 'detailCard'}"
+                            style=" text-decoration: none"
+                            class="pa-2"
                           >
                             <v-btn
                               color="#79b3bf"
@@ -70,16 +77,16 @@
                             >
                               구독하러가기
                             </v-btn>
-                          </v-flex>
+                          </router-link>
                           <div
-                            class="mx-1 mt-1"
+                            class="mx-1 mt-1 pa-1"
                           >
                             <v-icon>remove_red_eye</v-icon>
                             <span class="mx-2 body-2">{{ card.hits }}</span>
                             <v-icon>star_border</v-icon>
                             <span class="mx-2 body-2">{{ card.hits }}</span>
                           </div>
-                        </v-flex>
+                        </v-layout>
                       </v-layout>
                     <!-- </v-card-title> -->
                   </v-container>

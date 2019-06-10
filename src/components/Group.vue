@@ -37,7 +37,12 @@
             </v-flex>
             <v-layout align-self-end>
               <v-flex>
-                <v-btn color="#79b3bf" class="white--text font-weight-bold">자세히보기</v-btn>
+                <router-link
+                  :to="{name: 'selectedGroup'}"
+                  style=" text-decoration: none"
+                >
+                  <v-btn color="#79b3bf" class="white--text font-weight-bold">자세히보기</v-btn>
+                </router-link>
               </v-flex>
               </v-layout>
             </v-layout>
@@ -114,7 +119,7 @@
         </v-layout>
       </mdb-modal-body>
       <mdb-modal-footer class="pa-1">
-        <mdb-btn color="mdb-color" class="font-weight-medium">Next</mdb-btn>
+        <mdb-btn color="mdb-color" class="font-weight-medium white--text px-4 py-2">Next</mdb-btn>
       </mdb-modal-footer>
     </mdb-modal>
 

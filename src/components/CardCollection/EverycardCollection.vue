@@ -3,7 +3,7 @@
     <v-layout py-2>
       <cardSelect class="pa-2"></cardSelect>
     </v-layout>
-    <v-layout justify-center style="background-color:#757575">
+    <v-layout justify-center style="background-color:#b7b7b7">
       <v-flex xs10>
         <div class="headline font-weight-black white--text pt-4 pb-1">
           맞춤 추천 카드

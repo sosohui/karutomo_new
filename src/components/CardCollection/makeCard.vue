@@ -39,7 +39,7 @@
           white--text
         "
       >
-        {{ cardPackName }}
+        {{ card.title }}
       </div>
       <div
         class="
@@ -64,7 +64,10 @@
       </v-layout>
     </v-layout>
     </v-navigation-drawer>
-    <span
+    <v-layout
+      row
+    >
+    <v-flex
       v-for="i in 30"
       :key="i"
       class="px-2"
@@ -83,10 +86,11 @@
           </span>
         </span>
       </mdb-btn>
-    </span>
+    </v-flex>
+    </v-layout>
 
     <!-- 카드 제작 모달창 -->
-    <mdb-modal :show="modal" @close="modal = false">
+    <mdb-modal :show="modal" size="lg" @close="modal = false">
       <mdb-modal-header color="mdb-color">
         <mdb-modal-title><div class="font-weight-medium">카드 제작</div></mdb-modal-title>
       </mdb-modal-header>
@@ -198,7 +202,6 @@
             </v-card>
           </v-flex>
           <v-flex ml-4 wrap>
-            <canvas style="width:230px; height:328px; backgroundColor:yellow;">
               <v-img
                   :src= image.dataUrl
                   v-bind:style="{ border: edgeStyle }"
@@ -212,7 +215,6 @@
                 <v-flex class="white--text font-weight-black" style="font-size: 50px; position:absolute; top:-5px; left:5px;">{{ leaderText }}</v-flex>
               </div>
               </v-img>
-            </canvas>
             <image-uploader
                 :preview="false"
                 :className="['fileinput', { 'fileinput--loaded': hasImage }]"

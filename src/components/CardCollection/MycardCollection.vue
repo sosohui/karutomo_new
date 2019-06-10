@@ -5,6 +5,31 @@
     </v-layout>
 
     <div class="m-3">
+      <div class="headline font-weight-black">제작중인 카드</div>
+    </div>
+    <span>
+      <router-link
+        :to="{name: 'makeCard'}"
+        class="black--text ma-3 font-weight-black"
+        style=" text-decoration: none"
+      >
+        <mdb-btn
+            outline="mdb-color"
+            class="py-4 mt-1 ml-4"
+            @click.native="modal = true"
+        >
+            <span class="px-5">
+            <span class="pa-4">
+                <v-icon x-large class="pa-5">
+                add
+                </v-icon>
+            </span>
+            </span>
+        </mdb-btn>
+      </router-link>
+    </span>
+    <hr style="border:solid 1px grey">
+    <div class="m-3">
       <div class="headline font-weight-black">내가 제작한 카드</div>
     </div>
     <carousel
@@ -66,31 +91,7 @@
       </slide>
 
       <!-- 카드 추가를 위한 버튼 -->
-      <slide
-        class="pl-0"
-      >
-        <span>
-          <router-link
-            :to="{name: 'makeCard'}"
-            class="black--text ma-3 font-weight-black"
-            style=" text-decoration: none"
-          >
-            <mdb-btn
-                outline="mdb-color"
-                class="py-4 mt-1 ml-4"
-                @click.native="modal = true"
-            >
-                <span class="px-5">
-                <span class="pa-4">
-                    <v-icon x-large class="pa-5">
-                    add
-                    </v-icon>
-                </span>
-                </span>
-            </mdb-btn>
-          </router-link>
-        </span>
-      </slide>
+      
     </carousel>
 
     <!-- 카드 제작 모달창 -->
@@ -153,6 +154,8 @@
     </mdb-modal> -->
     <!-- 모달창 끝 -->
 
+    <hr style="border:solid 1px grey">    
+
     <div class="m-3">
       <div class="headline font-weight-black">내가 구독한 카드</div>
     </div>
@@ -213,29 +216,7 @@
           </v-card>
         </v-flex>
       </slide>
-      <slide
-        class="pl-3"
-      >
-        <span>
-          <mdb-btn
-            outline="mdb-color"
-            class="py-4 mt-1 ml-4"
-          >
-            <span class="px-5">
-              <span class="pa-4">
-                <router-link
-                  :to="{name: 'everycardCollection'}"
-                  style="text-decoration: none"
-                >
-                <v-icon x-large class="pa-5">
-                  add
-                </v-icon>
-                </router-link>
-              </span>
-            </span>
-          </mdb-btn>
-        </span>
-      </slide>
+      
     </carousel>
 
   </v-container>
@@ -268,7 +249,9 @@
         cards: [
           { title: '로빈 카루타', src: require('../../assets/로빈.jpg'), context: '원피스 캐릭터 로빈 카루타입니다', tag: '원피스' , hits: 30, flex: 4.5 },
           { title: '에이스 카루타', src: require('../../assets/에이스.jpg'), context: '원피스 캐릭터 에이스 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
-          { title: '조로 카루타', src: require('../../assets/조로.jpg'), context: '원피스 캐릭터 조로 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 }
+          { title: '조로 카루타', src: require('../../assets/조로.jpg'), context: '원피스 캐릭터 조로 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
+          { title: '조로 카루타2', src: require('../../assets/조로.jpg'), context: '원피스 캐릭터 조로 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 }
+
         ]
       }
     },

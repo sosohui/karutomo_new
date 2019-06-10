@@ -38,7 +38,7 @@
             <v-layout>
               <v-flex xs5>
                 <v-img
-                  :src="card.src"
+                  :src="cards[0].card.cd_img"
                   contain
                   width="125px"
                   height="175px"
@@ -49,7 +49,7 @@
                   primary-title
                   class="p-1"
                 >
-                  <p class="title font-weight-bold m-1">{{ card.title }}</p>
+                  <p class="title font-weight-bold m-1">{{ cards[0].card.cd_name }}</p>
                   <div class="body-2 m-1">{{ card.context }}</div>
                   <div class="body-2 m-1">#{{ card.tag }}</div>
                   <router-link
@@ -151,6 +151,7 @@
 </template>
 
 <script>
+  import axios from "axios";
   import cardSelect from './CardCollection/cardSelection.vue';
   import { mdbBtn } from 'mdbvue';
   import { Carousel, Slide } from 'vue-carousel';
@@ -164,17 +165,30 @@
     },
     data() {
       return {
-        cards: [
-          { title: '로빈 카루타', src: require('../assets/로빈.jpg'), context: '원피스 캐릭터 로빈 카루타입니다', tag: '원피스' , hits: 30, flex: 4.5 },
-          { title: '에이스 카루타', src: require('../assets/에이스.jpg'), context: '원피스 캐릭터 에이스 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
-          { title: '조로 카루타', src: require('../assets/조로.jpg'), context: '원피스 캐릭터 조로 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
-          { title: '에이스2 카루타', src: require('../assets/에이스.jpg'), context: '원피스 캐릭터 에이스 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
-        ]
+        cards : [],
+        // cards: [
+        //   { title: '로빈 카루타', src: require('../assets/로빈.jpg'), context: '원피스 캐릭터 로빈 카루타입니다', tag: '원피스' , hits: 30, flex: 4.5 },
+        //   { title: '에이스 카루타', src: require('../assets/에이스.jpg'), context: '원피스 캐릭터 에이스 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
+        //   { title: '조로 카루타', src: require('../assets/조로.jpg'), context: '원피스 캐릭터 조로 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
+        //   { title: '에이스2 카루타', src: require('../assets/에이스.jpg'), context: '원피스 캐릭터 에이스 카루타입니다', tag: '원피스', hits: 30, flex: 4.5 },
+        // ]
       }
     },
     computed: {
       navigationNext: function() { return `<i class="fas fa-chevron-right fa-4x"></i>` },
       navigationPrev: function() { return `<i class="fas fa-chevron-left fa-4x"></i>` }
+    },
+    mounted() {
+      var baseURI = "http://13.124.86.10/api/getAllCardPacks"
+        axios
+          .get(baseURI)
+          .then(res => {
+            this.cards = res.data;
+            console.log("ok", this.cards);
+          })
+          .catch(error => {
+            console.log("failed", error);
+          });
     }
   }
 </script>
